@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# local env files
+.env*
+!.env.example
+
+# tooling and caches
+.DS_Store
+*.log
+npm-debug.log*
+tsconfig.tsbuildinfo
+.eslintcache
+
+# local agent skill payloads
+.agents/
+agent/
+
+# deployment output
+.vercel/
+.claude/
