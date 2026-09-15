@@ -21,6 +21,8 @@ Rutas disponibles:
 - `/` storefront con catálogo demo, filtros y carrito.
 - `/checkout` checkout de entrega preparado para Mercado Pago y Andreani.
 - `/admin` panel inicial de administración.
+- `/login` acceso con Google para clientes y administración.
+- `/admin/envios` configuración de modalidades y tarifas de envío.
 
 ## Calidad
 
@@ -30,6 +32,18 @@ npm run build
 ```
 
 El workflow de GitHub ejecuta ambos comandos en cada push a `main` y en cada pull request.
+
+## Supabase y Google Login
+
+1. Crear un proyecto en Supabase.
+2. Ejecutar `supabase/migrations/20260915000000_auth_and_admin.sql` en el SQL Editor.
+3. Activar Google en `Authentication > Providers > Google`.
+4. Configurar en Google Cloud las URLs de callback de Supabase que muestra el dashboard.
+5. Completar `.env.local` con las variables de Supabase.
+
+El email `nachomartinez49@gmail.com` queda en la allowlist de administradores. La cuenta se crea automáticamente como admin cuando ese email inicia sesión por primera vez con Google. Los demás usuarios ingresan como `customer`.
+
+El panel verifica sesión y rol en el servidor. Ocultar el enlace no se usa como mecanismo de seguridad.
 
 ## Integraciones pendientes de credenciales
 
