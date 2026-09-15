@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { UserMenu } from "@/components/user-menu";
 
 type Product = { id: number; name: string; category: string; model: string; price: number; sizes: string[]; label?: string; mark: string };
 type CartLine = Product & { size: string; quantity: number };
@@ -45,7 +46,7 @@ export default function Home() {
       <header className="nav">
         <Link className="brand" href="/" aria-label="Chifle Store, inicio"><Image src="/LOGO.jpeg" alt="" width={35} height={35} priority /> chifle<span>.</span></Link>
         <nav className="nav-links" aria-label="Navegación principal"><a href="#shop">Shop</a><a href="#manifiesto">Manifiesto</a><a href="#footer">Contacto</a></nav>
-        <div className="nav-actions"><Link className="nav-action" href="/login">Ingresar</Link><button className="cart-button" onClick={() => setCartOpen(true)} aria-label={`Abrir carrito, ${cartCount} productos`}>Carrito <span className="cart-count">({cartCount.toString().padStart(2, "0")})</span></button></div>
+        <div className="nav-actions"><UserMenu /><button className="cart-button" onClick={() => setCartOpen(true)} aria-label={`Abrir carrito, ${cartCount} productos`}>Carrito <span className="cart-count">({cartCount.toString().padStart(2, "0")})</span></button></div>
       </header>
       <section className="hero" aria-labelledby="hero-title"><div className="hero-copy"><span className="eyebrow">Desde Córdoba, para todos lados</span><h1 id="hero-title">Vestite<br /><em>distinto.</em></h1><p className="hero-sub">Ropa y zapatillas para moverte con tu propio código. Sin permiso, sin manual.</p><div className="hero-cta"><a className="button-dark" href="#shop">Ver colección</a><a className="text-link" href="#manifiesto">Conocé Chifle</a></div></div><div className="hero-art" aria-label="Nueva colección Chifle Store"><div className="hero-sticker">HECHO<br />ACÁ</div><span className="hero-number">01 / 06 — DROP 2026</span></div></section>
       <div className="marquee" aria-hidden="true"><div className="marquee-inner">CHIFLE STORE · CÓRDOBA CAPITAL · STREETWEAR ARGENTINO · CHIFLE STORE · CÓRDOBA CAPITAL · STREETWEAR ARGENTINO · </div></div>
