@@ -24,6 +24,8 @@ Rutas disponibles:
 - `/login` acceso con Google para clientes y administración.
 - `/perfil` datos personales y dirección principal persistidos.
 - `/admin/envios` configuración de modalidades y tarifas de envío.
+- `/admin/productos` alta rápida y listado de productos.
+- `/admin/categorias` categorías, subcategorías y activación.
 
 ## Calidad
 
@@ -39,9 +41,10 @@ El workflow de GitHub ejecuta ambos comandos en cada push a `main` y en cada pul
 1. Crear un proyecto en Supabase.
 2. Ejecutar `supabase/migrations/20260915000000_auth_and_admin.sql` en el SQL Editor.
 3. Ejecutar `supabase/migrations/20260915010000_profiles_and_addresses.sql` en el SQL Editor.
-4. Activar Google en `Authentication > Providers > Google`.
-5. Configurar en Google Cloud las URLs de callback de Supabase que muestra el dashboard.
-6. Completar `.env.local` con las variables de Supabase.
+4. Ejecutar `supabase/migrations/20260915020000_catalog.sql` en el SQL Editor.
+5. Activar Google en `Authentication > Providers > Google`.
+6. Configurar en Google Cloud las URLs de callback de Supabase que muestra el dashboard.
+7. Completar `.env.local` con las variables de Supabase.
 
 El email `nachomartinez49@gmail.com` queda en la allowlist de administradores. La cuenta se crea automáticamente como admin cuando ese email inicia sesión por primera vez con Google. Los demás usuarios ingresan como `customer`.
 
